@@ -1,0 +1,94 @@
+/* CV PRINT STYLE: A4 FORMAT & PRINT OPTIMIZATION */
+
+/* Thiết lập cấu hình in ấn A4 */
+@page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        background-color: #fff !important;
+        color: #1f2937 !important;
+        font-size: 13.5px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Ẩn các thanh công cụ điều khiển */
+    .standalone-toolbar {
+        display: none !important;
+    }
+
+    /* Đảm bảo ngắt trang thông minh */
+    .cv-sidebar-section,
+    .cv-timeline-item {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+}
+
+/* Đảm bảo màu sắc hiển thị đúng khi chuyển sang PDF */
+* {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE LAYOUT FOR MOBILE VIEWING
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+    /* Chuyển tài liệu Modern thành 1 cột */
+    .cv-document {
+        flex-direction: column !important;
+        min-height: auto !important;
+        width: 100% !important;
+    }
+
+    /* Đưa cột sidebar lên trên hoặc xuống dưới */
+    .cv-sidebar {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1.5px solid var(--border-light) !important;
+        padding: 20px 16px !important;
+    }
+
+    .cv-main {
+        width: 100% !important;
+        padding: 20px 16px !important;
+    }
+
+    /* Các grid hiển thị thành 1 cột để tránh tràn */
+    .cv-contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cv-links-list {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Ngăn tràn từ ngữ quá dài (Word Wrap) */
+.cv-timeline-desc, 
+.cv-intro-text,
+.cv-timeline-title,
+.cv-name,
+.cv-sidebar-item-val {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+}

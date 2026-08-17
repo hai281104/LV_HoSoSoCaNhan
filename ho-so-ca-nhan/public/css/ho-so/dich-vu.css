@@ -1,0 +1,653 @@
+/* Header Card Banner */
+.service-header-card {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.service-header-info {
+    flex: 1;
+    min-width: 280px;
+}
+.service-header-info h2 {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+.service-header-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* CSS cho Tabs Dịch Vụ - Segmented control pill design */
+.tab-container {
+    margin-bottom: 28px;
+    background-color: #f1f5f9;
+    border-radius: 30px;
+    padding: 4px;
+    display: inline-flex;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+    border: none;
+}
+.tabs-list {
+    display: flex;
+    gap: 4px;
+}
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 8px 20px;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+    border-radius: 20px;
+}
+.tab-btn:hover {
+    color: var(--accent-blue);
+}
+.tab-btn.active {
+    color: #0f172a;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.tab-icon {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.2;
+}
+
+/* Tabs Content Panels */
+.tab-panel {
+    display: none;
+}
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Services Layout Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+}
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.06), 0 10px 10px -6px rgba(37, 99, 235, 0.02);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+.service-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+.service-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+}
+.service-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Category Badges Styling */
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 2.5px 8px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.category-badge.lap_trinh_web { background-color: rgba(37, 99, 235, 0.08); color: #2563eb; }
+.category-badge.toi_uu_sql { background-color: rgba(16, 185, 129, 0.08); color: #10b981; }
+.category-badge.thiet_ke_uiux { background-color: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
+.category-badge.lap_trinh_mobile { background-color: rgba(245, 158, 11, 0.08); color: #f59e0b; }
+.category-badge.devops_cloud { background-color: rgba(239, 68, 68, 0.08); color: #ef4444; }
+.category-badge.kiem_thu { background-color: rgba(236, 72, 153, 0.08); color: #ec4899; }
+.category-badge.an_ninh_mang { background-color: rgba(220, 38, 38, 0.08); color: #dc2626; }
+.category-badge.phan_tich_du_lieu { background-color: rgba(8, 145, 178, 0.08); color: #0891b2; }
+.category-badge.tri_tue_nhan_tao { background-color: rgba(79, 70, 229, 0.08); color: #4f46e5; }
+.category-badge.viet_lach_content { background-color: rgba(219, 39, 119, 0.08); color: #db2777; }
+.category-badge.quan_tri_du_an { background-color: rgba(78, 17, 108, 0.08); color: #4e116c; }
+.category-badge.khac { background-color: rgba(100, 116, 139, 0.08); color: #64748b; }
+
+/* Provider Info Header for Community Services */
+.service-provider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+.provider-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: rgba(37, 99, 235, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--accent-blue);
+    font-size: 14px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+.provider-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.provider-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.provider-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.provider-role {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+}
+
+.service-desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    word-break: break-word;
+    white-space: pre-line;
+}
+
+/* Contact Details list inside Card */
+.service-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    background-color: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid #f1f5f9;
+    border-left: 3px solid var(--accent-blue);
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-primary);
+}
+.contact-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+.contact-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    width: 50px;
+    flex-shrink: 0;
+}
+.contact-val {
+    word-break: break-all;
+    font-weight: 500;
+}
+
+/* Service Action buttons inside Card */
+.service-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+.btn-card-icon {
+    background: none;
+    border: 1px solid var(--border-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-secondary);
+}
+.btn-card-icon:hover {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    background-color: rgba(37, 99, 235, 0.05);
+}
+.btn-card-icon.delete:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+.btn-action-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+.btn-action-sm.outline {
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: var(--text-primary);
+}
+.btn-action-sm.outline:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: rgba(37, 99, 235, 0.03);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+.btn-action-sm.primary {
+    border: 1px solid var(--accent-blue);
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+.btn-action-sm.primary:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Empty state */
+.empty-services {
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: var(--shadow-sm);
+}
+.empty-icon {
+    width: 64px;
+    height: 64px;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+.empty-services h3 {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.empty-services p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Filter bar */
+.filter-card {
+    background-color: var(--card-bg);
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+.filter-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter-col {
+    flex: 1;
+    min-width: 200px;
+}
+.filter-input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+.filter-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Trạng thái ẩn */
+.service-card.is-hidden {
+    opacity: 0.6;
+    border-style: dashed;
+}
+.btn-card-icon.eye-off {
+    color: #94a3b8;
+    border-color: rgba(148, 163, 184, 0.3);
+}
+.btn-card-icon.eye-on {
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(16, 185, 129, 0.05);
+}
+.hidden-badge {
+    font-size: 9px;
+    font-weight: 700;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.contact-val a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-val a:hover {
+    text-decoration: underline;
+}
+/* Counter color khi vượt giới hạn */
+.counter-over {
+    color: #ef4444 !important;
+    font-weight: 700;
+}
+
+/* Reset bộ lọc button */
+.btn-reset-filters {
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-reset-filters:hover {
+    background-color: #e2e8f0;
+    color: var(--text-primary);
+}
+.btn-reset-filters svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* PAGINATION STYLING */
+.service-pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.service-pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.service-page-item {
+    display: inline-block;
+}
+.service-page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+.service-page-link:hover {
+    color: var(--accent-blue);
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+}
+.service-page-item.active .service-page-link {
+    color: #ffffff;
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    cursor: default;
+}
+.service-page-item.disabled .service-page-link {
+    color: #cbd5e1;
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.service-page-go-to {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.service-page-go-to input {
+    width: 60px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    outline: none;
+    transition: var(--transition);
+}
+.service-page-go-to input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.btn-go-to-page {
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--accent-blue);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-go-to-page:hover {
+    background-color: #1d4ed8;
+}
+@media (max-width: 576px) {
+    .service-pagination-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Sub-tabs for filtering personal services - Segmented control pill design */
+.sub-tab-container {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    background-color: #f1f5f9;
+    border-radius: 30px;
+    padding: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+    border: none;
+    flex-wrap: wrap;
+}
+
+.sub-tab-btn {
+    background: none;
+    border: none;
+    padding: 6px 16px;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sub-tab-btn:hover {
+    color: var(--accent-blue);
+}
+
+.sub-tab-btn.active {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Approval badges styling */
+.approval-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.approval-badge.pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.approval-badge.rejected {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.approval-badge.approved {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+/* Rejection reason box */
+.rejection-reason {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #fef2f2;
+    border: 1px solid #fee2e2;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #b91c1c;
+    line-height: 1.4;
+}
+
+/* Mini service card styles inside detail modal */
+.service-card-mini {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card-mini-hover:hover {
+    border-color: #bfdbfe !important;
+    background-color: #f0f7ff !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
+    transform: translateY(-1px);
+}
+

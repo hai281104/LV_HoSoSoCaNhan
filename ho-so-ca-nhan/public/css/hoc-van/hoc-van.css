@@ -1,0 +1,558 @@
+/* HOC-VAN.CSS
+   CSS cho dòng thời gian Học vấn & Trình độ */
+
+.education-header-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 10px;
+}
+
+.education-title-section h2 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.education-title-section p {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+}
+
+/* Timeline Layout */
+.timeline-container {
+    position: relative;
+    padding-top: 0;
+}
+
+.timeline-item {
+    display: flex;
+    position: relative;
+}
+
+.timeline-left {
+    width: 108px;
+    text-align: right;
+    padding-right: 12px;
+    padding-top: 3px;
+    flex-shrink: 0;
+}
+
+.timeline-year {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.timeline-status {
+    display: inline-flex;
+    padding: 2px 7px;
+    font-size: 10.5px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+.status-dang_hoc {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-da_tot_nghiep {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-tam_dung {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.timeline-center {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+/* Ensure first line starts from dot and last ends at dot */
+.timeline-item:first-child .timeline-line {
+    top: 20px;
+}
+
+.timeline-item:last-child .timeline-line {
+    bottom: calc(100% - 20px);
+}
+
+.timeline-item:only-child .timeline-line {
+    display: none;
+}
+
+.timeline-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: var(--transition);
+    color: var(--text-secondary);
+}
+
+.timeline-item:hover .timeline-circle {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.timeline-circle svg {
+    width: 16px;
+    height: 16px;
+}
+
+.timeline-circle.active {
+    border-color: var(--accent-blue);
+    background-color: #eff6ff;
+    color: var(--accent-blue);
+}
+
+.timeline-right {
+    flex: 1;
+    padding-bottom: 12px;
+    min-width: 0;
+}
+
+/* Timeline Card */
+.education-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    cursor: pointer;
+}
+
+.education-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.education-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.education-card-title h3 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.education-school {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #059669;
+    margin-bottom: 6px;
+}
+
+.education-school svg {
+    width: 14px;
+    height: 14px;
+    color: #059669;
+}
+
+.education-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    background-color: #f8fafc;
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid #f1f5f9;
+    margin-bottom: 6px;
+}
+
+.education-details-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.education-details-item strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.education-description {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    white-space: pre-line;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Action controls */
+.education-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.education-card:hover .education-actions {
+    opacity: 1;
+}
+
+.btn-edu-action {
+    background: none;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.btn-edu-action:hover {
+    background-color: #f1f5f9;
+}
+
+.btn-edu-action.edit:hover {
+    color: var(--accent-blue);
+    background-color: #eff6ff;
+}
+
+.btn-edu-action.delete:hover {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.btn-edu-action svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        padding-left: 24px;
+    }
+    
+    .timeline-left {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 8px;
+    }
+    
+    .timeline-center {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 24px;
+    }
+    
+    .timeline-line {
+        left: 11px;
+    }
+    
+    .timeline-circle {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 6px;
+        left: 0;
+    }
+    
+    .timeline-circle svg {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .timeline-right {
+        padding-bottom: 24px;
+    }
+    
+    .timeline-item:first-child .timeline-line {
+        top: 18px;
+    }
+    
+    .timeline-item:last-child .timeline-line {
+        bottom: calc(100% - 18px);
+    }
+    
+    .education-actions {
+        opacity: 1; /* always show on touch screens */
+    }
+}
+
+/* BỘ LỌC (FILTERS) & TRẠNG THÁI KHÔNG TÌM THẤY KẾT QUẢ */
+.filter-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-main-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-col-phan-loai {
+    flex: 1;
+    max-width: 250px;
+    min-width: 160px;
+}
+
+.filter-select {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 13.5px;
+    outline: none;
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.filter-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-actions-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.btn-reset-filters {
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-reset-filters:hover {
+    background-color: #e2e8f0;
+    color: var(--text-primary);
+}
+
+.btn-reset-filters svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* No Filter Results Card */
+.no-results-card {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.no-results-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--text-secondary);
+    margin: 0 auto 12px;
+    opacity: 0.6;
+}
+
+.no-results-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.no-results-desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+}
+
+/* Detail View Modal Styles */
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detail-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detail-group.full-width {
+    grid-column: span 2;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #475569;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.detail-value.text-primary {
+    color: var(--accent-blue);
+}
+
+.detail-value.font-bold {
+    font-weight: 700;
+}
+
+.detail-value.font-semibold {
+    font-weight: 600;
+}
+
+.detail-value.textarea-style {
+    background-color: var(--main-bg);
+    border: 1px solid var(--border-color);
+    padding: 14px;
+    border-radius: 8px;
+    min-height: 80px;
+    white-space: pre-line;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .filter-card {
+        padding: 14px 16px;
+    }
+    
+    .filter-main-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .filter-col-phan-loai {
+        max-width: 100%;
+        min-width: 100%;
+    }
+    
+    .filter-actions-group {
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+
+    .btn-reset-filters {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .detail-row-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .detail-group.full-width {
+        grid-column: span 1;
+    }
+}
+
+/* 2-Column Split Modal Styles for Detail View */
+.detail-section-two-columns {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 28px;
+}
+
+.detail-column-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detail-column-right {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .detail-section-two-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* NOI BAT — Đã chuyển sang chinh-sua.css để dùng chung */
+
+

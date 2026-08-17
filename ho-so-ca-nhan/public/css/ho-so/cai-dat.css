@@ -1,0 +1,637 @@
+/* AVATAR MENU & SETTINGS MODALS - CAI-DAT.CSS */
+
+/* -----------------------------------------------------------
+   1. AVATAR POPUP MENU (DROPDOWN)
+   ----------------------------------------------------------- */
+.avatar-dropdown {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 10px;
+    width: calc(100% - 20px);
+    background-color: #0f172a; /* Slate 900 */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md, 12px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    z-index: 1010;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.avatar-dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: transparent;
+}
+
+.avatar-dropdown.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.avatar-dropdown-header {
+    padding: 12px 14px;
+}
+
+.dropdown-user-name {
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-user-email {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+}
+
+.avatar-dropdown-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin: 4px 0;
+}
+
+.avatar-dropdown-list {
+    list-style: none;
+    padding: 4px;
+}
+
+.avatar-dropdown-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-align: left;
+    border-radius: var(--radius-sm, 8px);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.avatar-dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+}
+
+.avatar-dropdown-item.text-danger:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+}
+
+.avatar-dropdown-item svg {
+    width: 15px;
+    height: 15px;
+    color: #64748b;
+    transition: color 0.15s;
+}
+
+.avatar-dropdown-item:hover svg {
+    color: #38bdf8; /* Accent sky */
+}
+
+.avatar-dropdown-item.text-danger:hover svg {
+    color: #ef4444;
+}
+
+/* -----------------------------------------------------------
+   2. FLOATING MODALS OVERALL
+   ----------------------------------------------------------- */
+.cai-dat-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.6); /* Slate 900 semi-transparent */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cai-dat-modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cai-dat-modal-card {
+    background-color: #1e293b; /* Slate 800 */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg, 16px);
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+}
+
+.cai-dat-modal-overlay.open .cai-dat-modal-card {
+    transform: scale(1);
+}
+
+.cai-dat-modal-card.small-modal {
+    max-width: 480px;
+}
+
+.cai-dat-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cai-dat-modal-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.cai-dat-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.15s;
+}
+
+.cai-dat-modal-close:hover {
+    color: #f1f5f9;
+}
+
+.cai-dat-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.cai-dat-modal-footer {
+    padding: 14px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* -----------------------------------------------------------
+   3. SETTINGS TABS LAYOUT
+   ----------------------------------------------------------- */
+.cai-dat-tabs-container {
+    display: flex;
+    min-height: 320px;
+    gap: 20px;
+}
+
+.cai-dat-tabs-sidebar {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 15px;
+    flex-shrink: 0;
+}
+
+.cai-dat-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: var(--radius-sm, 8px);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cai-dat-tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+}
+
+.cai-dat-tab-btn.active {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #38bdf8;
+}
+
+.cai-dat-tab-btn svg {
+    color: #64748b;
+    transition: color 0.2s;
+}
+
+.cai-dat-tab-btn.active svg {
+    color: #38bdf8;
+}
+
+.cai-dat-tabs-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cai-dat-tab-pane {
+    display: none;
+}
+
+.cai-dat-tab-pane.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------------------------------------
+   4. FORM ELEMENTS
+   ----------------------------------------------------------- */
+.cai-dat-form-group {
+    margin-bottom: 15px;
+}
+
+.cai-dat-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+}
+
+.cai-dat-input {
+    width: 100%;
+    background-color: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm, 8px);
+    color: #f8fafc;
+    padding: 10px 12px;
+    font-size: 13.5px;
+    transition: border-color 0.2s;
+}
+
+.cai-dat-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.cai-dat-textarea {
+    width: 100%;
+    background-color: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm, 8px);
+    color: #f8fafc;
+    padding: 10px 12px;
+    font-size: 13.5px;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.cai-dat-textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.cai-dat-input-hint {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.cai-dat-error-msg {
+    display: block;
+    font-size: 11.5px;
+    color: #f87171;
+    margin-top: 4px;
+}
+
+/* Buttons */
+.cai-dat-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cai-dat-btn.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+.cai-dat-btn.btn-primary:hover:not(:disabled) {
+    background-color: #1d4ed8;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.cai-dat-btn.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cai-dat-btn.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #f8fafc;
+    transform: translateY(-1.5px);
+}
+
+.cai-dat-btn.btn-danger {
+    background-color: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.15);
+}
+
+.cai-dat-btn.btn-danger:hover:not(:disabled) {
+    background-color: #b91c1c;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 14px rgba(220, 38, 38, 0.25);
+}
+
+.cai-dat-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* -----------------------------------------------------------
+   5. NOTIFICATION TOGGLE
+   ----------------------------------------------------------- */
+.cai-dat-setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md, 12px);
+}
+
+.setting-item-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.setting-item-title {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.setting-item-desc {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Toggle Switch Switcher */
+.cai-dat-toggle {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.cai-dat-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cai-dat-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #475569;
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.cai-dat-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.cai-dat-toggle input:checked + .cai-dat-toggle-slider {
+    background-color: #22c55e;
+}
+
+.cai-dat-toggle input:checked + .cai-dat-toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* -----------------------------------------------------------
+   6. DANGER ZONE (DELETE ACCOUNT)
+   ----------------------------------------------------------- */
+.cai-dat-danger-zone {
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    background-color: rgba(239, 68, 68, 0.05);
+    border-radius: var(--radius-md, 12px);
+    padding: 16px;
+}
+
+.danger-zone-title {
+    color: #f87171;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.danger-zone-desc {
+    color: #cbd5e1;
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
+/* -----------------------------------------------------------
+   7. PRIVACY SCROLL TEXT
+   ----------------------------------------------------------- */
+.text-scroll {
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 8px;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.text-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.text-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.text-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+/* -----------------------------------------------------------
+   8. RESPONSIVE DESIGN
+   ----------------------------------------------------------- */
+@media (max-width: 640px) {
+    .cai-dat-modal-overlay {
+        padding: 0;
+    }
+
+    .cai-dat-modal-card {
+        max-width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+
+    .cai-dat-modal-body {
+        padding: 0;
+    }
+
+    .cai-dat-tabs-container {
+        flex-direction: column;
+        height: calc(100vh - 120px);
+    }
+
+    .cai-dat-tabs-sidebar {
+        width: 100%;
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 10px 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        scrollbar-width: none;
+        flex-shrink: 0;
+    }
+
+    .cai-dat-tabs-sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cai-dat-tab-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .cai-dat-tabs-content {
+        padding: 20px 15px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    /* Keep smaller modals as cards on mobile instead of full-screen */
+    .cai-dat-modal-overlay:has(.small-modal) {
+        padding: 16px;
+    }
+
+    .cai-dat-modal-card.small-modal {
+        max-width: 100%;
+        height: auto;
+        max-height: 90vh;
+        border-radius: var(--radius-md, 12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .cai-dat-modal-card.small-modal .cai-dat-modal-body {
+        padding: 20px;
+    }
+}
+
+/* -----------------------------------------------------------
+   9. COLLAPSED SIDEBAR USER PROFILE RULES
+   ----------------------------------------------------------- */
+.sidebar.collapsed .sidebar-user {
+    padding: 12px 6px !important;
+    justify-content: center !important;
+}
+
+.sidebar.collapsed .sidebar-user-trigger {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    padding: 4px 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
+.sidebar.collapsed .user-chevron-sm {
+    display: none !important;
+}
+
+/* Position dropdown to the right of collapsed sidebar */
+.sidebar.collapsed .avatar-dropdown {
+    position: fixed !important;
+    left: 85px !important;
+    bottom: 10px !important;
+    width: 200px !important;
+}
+
+/* Adjust pseudo element bridge for the left side of dropdown in collapsed state */
+.sidebar.collapsed .avatar-dropdown::after {
+    content: '' !important;
+    position: absolute !important;
+    left: -20px !important;
+    bottom: 0 !important;
+    width: 20px !important;
+    height: 100% !important;
+    top: 0 !important;
+    right: auto !important;
+}
+
